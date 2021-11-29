@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="calculator.css">
+  <title>Calculator</title>
+</head>
+<body>
+
+  <!-- calculator -->
+  <div class="calculator">
+
+    <!-- display -->
+    <input type="text" class="display" id="input"disabled>
+    <!-- keys -->
+    <div class="keys">
+      <!-- 4 rows of keys -->
+      <div class="row">
+        <button onclick="display(7)">7</button>
+        <button  onclick="display(8)">8</button>
+        <button onclick="display(9)">9</button>
+        <button onclick="display('+')"class="operator">+</button>
+      </div>
+      <div class="row">
+        <button onclick="display(4)">4</button>
+        <button onclick="display(5)">5</button>
+        <button onclick="display(6)">6</button>
+        <button onclick="display('-')"class="operator">-</button>
+      </div>
+      <div class="row">
+        <button onclick="display(1)">1</button>
+        <button onclick="display(2)">2</button>
+        <button onclick="display(3)">3</button>
+        <button onclick="display('*')"class="operator">*</button>
+      </div>
+      <div class="row">
+        <button onclick="clearAll('c')" class="operator">C</button>
+        <button onclick="display(0)">0</button>
+        <button onclick="display('/')"class="operator">/</button>
+        <button onclick="result('=')"class="operator">=</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- calculator body ends -->
+   <script>
+    function display(num){
+      var number = document.getElementById('input');
+      number.value += num;
+    }
+    function result(){
+       var result = document.getElementById('input');
+       result.value = eval(result.value);
+    }
+    function clearAll(){
+      var display = document.getElementById('input');
+      display.value = '';
+    }
+    function backspace(){
+      var display = document.getElementById('input');
+      var number = display.value;
+      number = number.slice(0, -1);
+      display.value = number;
+    }
+   </script>
+</body>
+</html>
